@@ -4,7 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "parcel src/index.html"
+    "start": "parcel src/index.html",
+    "build": "parcel build src/index.html --public-url ./",
+    "cleandist": "rm -rf dist",
+    "cleanroot": "cd ../ && rm -f index.html && rm -f *.js",
+    "copy": "cp build/* ../",
+    "prod": "npm run cleandist && npm run build && npm run cleanroot && npm run copy"
   },
   "repository": {
     "type": "git",
