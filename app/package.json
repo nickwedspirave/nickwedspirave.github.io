@@ -6,11 +6,11 @@
   "main": "index.js",
   "scripts": {
     "start": "parcel src/index.html",
-    "build": "parcel build src/index.html --public-url ./",
+    "builddist": "parcel build src/index.html --public-url ./",
     "cleandist": "rm -rf dist",
     "cleanroot": "cd ../ && rm -f index.html && rm -f *.js",
-    "copy": "cp build/* ../",
-    "prod": "npm run cleandist && npm run build && npm run cleanroot && npm run copy"
+    "copydist": "cp dist/* ../",
+    "prod": "npm run cleandist && npm run builddist && npm run cleanroot && npm run copydist"
   },
   "repository": {
     "type": "git",
