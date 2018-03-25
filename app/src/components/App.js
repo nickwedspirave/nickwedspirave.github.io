@@ -13,7 +13,7 @@ const App = () => (
             src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJ3TuAfPvT1IkRR2qwJvcxUpQ&key=AIzaSyByKiSswQhQtBA-amrIC7Oqvv2vJuUeMy4"
             allowFullScreen
         />
-        <RsvpForm who="" coming={false} guests={[]} />
+        <RsvpForm name="" email="" coming={false} guests={[]} />
     </div>
 );
 

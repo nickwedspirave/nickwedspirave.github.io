@@ -20,7 +20,7 @@ function sendRsvpEmail(email) {
 
 async function onSubmit(values, { setSubmitting, setErrors }) {
     try {
-        console.log('posting', values);
+        values.coming = values.coming === 'true';
         await sendRsvpEmail(values);
     } catch (e) {
         // TODO
@@ -124,17 +124,17 @@ const enhance = withHandlers({
 const FieldGuests = enhance(UnwrappedFieldGuests);
 
 const validationSchema = yup.object({
-    who: yup
+    name: yup.string().required(),
+    email: yup
         .string()
         .email()
         .required(),
     coming: yup.boolean().required(),
     guests: yup
         .array()
-        .of(yup.string().required())
+        .of(yup.string())
         .min(0)
-        .max(10)
-        .required()
+        .max(5)
 });
 
 const RsvpForm = initialValues => (
@@ -142,10 +142,16 @@ const RsvpForm = initialValues => (
         initialValues={initialValues}
         validationSchema={validationSchema}
         onSubmit={onSubmit}
-        render={({ errors, touched, isSubmitting }) => (
+        render={({ isValid, errors, touched, isSubmitting }) => (
             <Form>
                 <Field
-                    name="who"
+                    name="name"
+                    required={true}
+                    component={FieldText}
+                    label="Name"
+                />
+                <Field
+                    name="email"
                     required={true}
                     component={FieldEmail}
                     label="Email Address"
