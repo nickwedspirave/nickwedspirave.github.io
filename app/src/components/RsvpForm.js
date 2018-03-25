@@ -11,7 +11,7 @@ function sendRsvpEmail(email) {
 
     const body = JSON.stringify(email);
 
-    return fetch('https://email-microservice.herokuapp.com/rsvp', {
+    return fetch('https://rsvp-microservice.herokuapp.com/rsvp', {
         method: 'POST',
         headers,
         body
