@@ -24,12 +24,14 @@
   "homepage": "https://github.com/nickwedspirave/nickwedspirave.github.io#readme",
   "devDependencies": {
     "babel-preset-react-app": "^3.1.1",
-    "parcel-bundler": "^1.6.2"
+    "parcel-bundler": "^1.6.2",
+    "prettier": "^1.11.1"
   },
   "dependencies": {
     "formik": "^0.11.11",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
+    "styled-components": "^3.2.3",
     "yup": "^0.24.1"
   }
 }
