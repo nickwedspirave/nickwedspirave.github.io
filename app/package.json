@@ -10,7 +10,8 @@
     "cleandist": "rm -rf dist",
     "cleanroot": "cd ../ && rm -f index.html && rm -f *.js",
     "copydist": "cp dist/* ../",
-    "prod": "npm run cleandist && npm run builddist && npm run cleanroot && npm run copydist"
+    "prod":
+      "npm run cleandist && npm run builddist && npm run cleanroot && npm run copydist"
   },
   "repository": {
     "type": "git",
@@ -21,7 +22,8 @@
   "bugs": {
     "url": "https://github.com/nickwedspirave/nickwedspirave.github.io/issues"
   },
-  "homepage": "https://github.com/nickwedspirave/nickwedspirave.github.io#readme",
+  "homepage":
+    "https://github.com/nickwedspirave/nickwedspirave.github.io#readme",
   "devDependencies": {
     "babel-preset-react-app": "^3.1.1",
     "parcel-bundler": "^1.6.2",
@@ -31,7 +33,12 @@
     "formik": "^0.11.11",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
+    "recompose": "^0.26.0",
     "styled-components": "^3.2.3",
     "yup": "^0.24.1"
+  },
+  "prettier": {
+    "tabWidth": 4,
+    "singleQuote": true
   }
 }
