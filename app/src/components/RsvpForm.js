@@ -31,11 +31,30 @@ const Label = styled.label`
   display: block;
 `;
 
+const Text = styled.input.attrs({
+  type: "text"
+})`
+  display: inline-block;
+`;
+
 const Email = styled.input.attrs({
   type: "email"
 })`
   display: inline-block;
 `;
+
+const Radio = styled.input.attrs({
+  type: "radio"
+})`
+  display: inline-block;
+`;
+
+const FieldText = ({ field, form, label, ...props }) => (
+  <Label>
+    {label}
+    <Text {...field} {...props} />
+  </Label>
+);
 
 const FieldEmail = ({ field, form, label, ...props }) => (
   <Label>
@@ -43,12 +62,6 @@ const FieldEmail = ({ field, form, label, ...props }) => (
     <Email {...field} {...props} />
   </Label>
 );
-
-const Radio = styled.input.attrs({
-  type: "radio"
-})`
-  display: inline-block;
-`;
 
 const FieldRadio = ({
   field: { value, ...rest },
@@ -61,6 +74,22 @@ const FieldRadio = ({
     <Radio checked={value === valueId} value={valueId} {...rest} {...props} />
     {label}
   </Label>
+);
+
+const FieldGuests = ({ name, push, pop, form: { values } }) => (
+  <div>
+    <button type="button" onClick={() => push("")}>
+      Add Guest
+    </button>
+    {values[name].map((guest, i) => (
+      <Field
+        key={i}
+        name={`${name}.${i}`}
+        component={FieldText}
+        label="Guest"
+      />
+    ))}
+  </div>
 );
 
 const RsvpForm = initialValues => (
@@ -89,6 +118,7 @@ const RsvpForm = initialValues => (
           label="Sorry, can't make it"
           valueId="false"
         />
+        <FieldArray name="guests" component={FieldGuests} />
         <button disabled={isSubmitting}>Submit</button>
       </Form>
     )}
